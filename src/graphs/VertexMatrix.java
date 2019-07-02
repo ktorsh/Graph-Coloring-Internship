@@ -1,14 +1,20 @@
 package graphs;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class VertexMatrix {
 	int num; 
 	ArrayList<Integer> connections; 
+	Color color; 
 	
 	public VertexMatrix() { 
 		num = 0; 
 		connections = new ArrayList<Integer>(); 
+	}
+	public VertexMatrix(int n) { 
+		num = n; 
+		connections = new ArrayList<Integer>();
 	}
 	public VertexMatrix(int n, ArrayList<Integer> c) { 
 		num = n; 
@@ -47,5 +53,19 @@ public class VertexMatrix {
 			connections.add(0);
 		}
 	}
+	public int[] getConnectionArray() { 
+		int[] row = new int[connections.size()]; 
+		for (int i = 0; i < connections.size(); i++) { 
+			row[i] = connections.get(i);
+		}
+		return row;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 
 }
