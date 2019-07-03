@@ -23,8 +23,11 @@ public class GraphMatrix {
 		}	
 	}
 	public void addNode() { 
-		VertexMatrix m = new VertexMatrix(nodes.size());
+		VertexMatrix m = new VertexMatrix(nodes.size(), nodes.size());
 		nodes.add(m);
+		for (int i = 0; i < nodes.size(); i++) { 
+			nodes.get(i).increaseNodeSize(1);
+		}
 	}
 	public void addConnection(int first, int second) { 
 		nodes.get(first).addConnection(second);
@@ -37,12 +40,20 @@ public class GraphMatrix {
 		}
 		return matrix;
 	}
-	public Color[] getNodeColors() { 
-		Color[] list = new Color[nodes.size()];
+	public Colors[] getNodeColors() { 
+		Colors[] list = new Colors[nodes.size()];
 		for (int i = 0; i < nodes.size(); i++) { 
 			list[i] = nodes.get(i).getColor();
 		}
 		return list; 
+	}
+	public static void printMatrix(int[][] m) { 
+		for (int i = 0; i < m.length; i++) { 
+			for (int j = 0; j < m[i].length; j++) {
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 
 }

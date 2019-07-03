@@ -6,19 +6,23 @@ import java.util.ArrayList;
 public class VertexMatrix {
 	int num; 
 	ArrayList<Integer> connections; 
-	Color color; 
+	Colors color; 
 	
 	public VertexMatrix() { 
 		num = 0; 
 		connections = new ArrayList<Integer>(); 
+		color = Colors.BLACK;
 	}
-	public VertexMatrix(int n) { 
+	public VertexMatrix(int n, int size) { 
 		num = n; 
 		connections = new ArrayList<Integer>();
+		increaseNodeSize(size);
+		color = Colors.BLACK;
 	}
 	public VertexMatrix(int n, ArrayList<Integer> c) { 
 		num = n; 
 		connections = new ArrayList<Integer>(c); 
+		color = Colors.BLACK;
 	}
 	public void addConnection(int wantedVertex) { 
 		if (connections.size() < wantedVertex + 1) { 
@@ -53,6 +57,7 @@ public class VertexMatrix {
 			connections.add(0);
 		}
 	}
+	
 	public int[] getConnectionArray() { 
 		int[] row = new int[connections.size()]; 
 		for (int i = 0; i < connections.size(); i++) { 
@@ -60,10 +65,10 @@ public class VertexMatrix {
 		}
 		return row;
 	}
-	public Color getColor() {
+	public Colors getColor() {
 		return color;
 	}
-	public void setColor(Color color) {
+	public void setColor(Colors color) {
 		this.color = color;
 	}
 
