@@ -65,6 +65,15 @@ public class VertexMatrix {
 		}
 		return row;
 	}
+	public int getDegree() { 
+		int count = 0;
+		for (int i = 0; i < connections.size(); i++) {  
+			if (connections.get(i) == 1) { 
+				count++;
+			}
+		}
+		return count;
+	}
 	public Colors getColor() {
 		return color;
 	}

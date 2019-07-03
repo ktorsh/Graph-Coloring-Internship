@@ -33,19 +33,32 @@ public class GraphMatrix {
 		nodes.get(first).addConnection(second);
 		nodes.get(second).addConnection(first);
 	}
-	public int[][] getAdjancyMatrix(){ 
+	public int[][] getAdjacencyMatrix(){ 
 		int[][] matrix = new int[nodes.size()][nodes.size()]; 
 		for (int i = 0; i < nodes.size(); i++) { 
 			matrix[i] = nodes.get(i).getConnectionArray();
 		}
 		return matrix;
 	}
-	public Colors[] getNodeColors() { 
+	public Colors[] getAllNodeColors() { 
 		Colors[] list = new Colors[nodes.size()];
 		for (int i = 0; i < nodes.size(); i++) { 
 			list[i] = nodes.get(i).getColor();
 		}
 		return list; 
+	}
+	public void setNodeColor(int n, Colors c) { 
+		nodes.get(n).setColor(c);
+	}
+	public Colors getNodeColor(int n) { 
+		return nodes.get(n).getColor();
+	}
+	public int[] getVertexDegrees(){ 
+		int[] deg = new int[nodes.size()];
+		for (int i = 0; i < nodes.size(); i++) { 
+			deg[i]= nodes.get(i).getDegree();
+		}
+		return deg;
 	}
 	public static void printMatrix(int[][] m) { 
 		for (int i = 0; i < m.length; i++) { 

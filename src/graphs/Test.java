@@ -26,7 +26,7 @@ public class Test {
 		g.addConnection(1, 2);
 		g.addConnection(1, 3);
 		g.addConnection(2, 3);
-		GraphMatrix.printMatrix(g.getAdjancyMatrix());
+		GraphMatrix.printMatrix(g.getAdjacencyMatrix());
 		GraphViewer.viewGraph(g);
 
 	}
