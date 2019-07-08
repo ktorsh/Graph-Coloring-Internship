@@ -69,7 +69,7 @@ public class VertexMatrix {
 		int count = 0;
 		for (int i = 0; i < connections.size(); i++) {  
 			if (connections.get(i) == 1) { 
-				count++;
+				count++;      
 			}
 		}
 		return count;
@@ -80,6 +80,9 @@ public class VertexMatrix {
 	public void setColor(Colors color) {
 		this.color = color;
 	}
+//	public LinkedList<Integer> getAdjList(){ 
+//		
+//	}
 
 
 }

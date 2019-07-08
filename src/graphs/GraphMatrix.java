@@ -60,6 +60,9 @@ public class GraphMatrix {
 		}
 		return deg;
 	}
+	public int getVertexDegree(int n) { 
+		return nodes.get(n).getDegree();
+	}
 	public static void printMatrix(int[][] m) { 
 		for (int i = 0; i < m.length; i++) { 
 			for (int j = 0; j < m[i].length; j++) {

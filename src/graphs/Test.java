@@ -29,6 +29,7 @@ public class Test {
 		GraphMatrix.printMatrix(g.getAdjacencyMatrix());
 		GraphViewer.viewGraph(g);
 
+
 	}
 
 }
