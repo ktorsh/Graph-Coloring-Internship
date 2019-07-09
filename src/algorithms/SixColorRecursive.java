@@ -47,11 +47,9 @@ public class SixColorRecursive {
 		while (!hasColor) {
 			currentColor++;
 			hasColor = true;
-			System.out.println(currentColor);
 			for (int i = 0; i < adjMatrix.length; i++) { 
 				if (adjMatrix[minNode][i] == 1 && currentColor == graph.getNodeColor(i).getN()) { 
-					hasColor = false;
-					
+					hasColor = false;				
 				}
 			}
 		}
