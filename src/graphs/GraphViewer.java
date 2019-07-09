@@ -1,6 +1,9 @@
 package graphs;
+import java.util.Map;
+
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 public class GraphViewer {
 	public static void viewGraph(GraphMatrix g) { 
@@ -8,7 +11,9 @@ public class GraphViewer {
 		int[][] matrix = g.getAdjacencyMatrix();
 		Colors[] c = g.getAllNodeColors();
 		for (int i = 0; i < matrix.length; i++) { 
-			graph.addNode(String.valueOf(i)).addAttribute("ui.style", "fill-color:rgb("+c[i].getR()+","+c[i].getG()+","+c[i].getB()+");");
+			Node n = graph.addNode(String.valueOf(i));
+			n.addAttribute("ui.style", "fill-color:rgb("+c[i].getR()+","+c[i].getG()+","+c[i].getB()+");");
+			n.addAttribute("ui.label", String.valueOf(i));
 		}
 		for (int i = 0; i < matrix.length; i++) { 
 			for (int j = i; j < matrix.length; j++) { 
@@ -18,7 +23,6 @@ public class GraphViewer {
 			}
 		}
 		graph.display();
-		
 	}
 
 }

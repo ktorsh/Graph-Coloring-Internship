@@ -15,11 +15,11 @@ public class SixColorLowDegree {
 	}
 	public void color() { 
 		Stack<Integer> stack = new Stack<Integer>();
-		ArrayList<Integer> connectedNodes = new ArrayList<Integer>(adjMatrix.length);
+		ArrayList<Integer> connectedNodes = new ArrayList<Integer>(adjMatrix.length); //which nodes are in play
 		for (int i = 0; i < adjMatrix.length; i++) { 
 			connectedNodes.add(i);
 		}
-		for (int j = 0; j < adjMatrix.length; j++) {
+		for (int j = 0; j < adjMatrix.length; j++) { //find node with least edges
 			int minNode = connectedNodes.get(0); 
 			for (int i = 1; i < connectedNodes.size(); i++) {
 				if (graph.getVertexDegree(connectedNodes.get(i)) < graph.getVertexDegree(minNode)) { 
@@ -36,7 +36,7 @@ public class SixColorLowDegree {
 			while (!hasColor) {
 				currentColor++;
 				hasColor = true;
-				for (int i = 0; i < adjMatrix.length; i++) { 
+				for (int i = 0; i < adjMatrix.length; i++) { //colors with the "least" available color
 					if (adjMatrix[node][i] == 1 && currentColor == graph.getNodeColor(i).getN()) { 
 						hasColor = false;				
 					}
