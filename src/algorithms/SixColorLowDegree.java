@@ -6,7 +6,7 @@ import java.util.Stack;
 import graphs.Colors;
 import graphs.GraphMatrix;
 
-public class SixColorLowDegree {
+public class SixColorLowDegree implements ColoringAlgo{
 	GraphMatrix graph;
 	int[][] adjMatrix; 
 	public SixColorLowDegree(GraphMatrix g) { 

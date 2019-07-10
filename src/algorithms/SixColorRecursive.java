@@ -3,7 +3,7 @@ package algorithms;
 import graphs.Colors;
 import graphs.GraphMatrix;
 
-public class SixColorRecursive {
+public class SixColorRecursive implements ColoringAlgo{
 	GraphMatrix graph;
 	int[][] adjMatrix;
 	public SixColorRecursive(GraphMatrix g) { 
