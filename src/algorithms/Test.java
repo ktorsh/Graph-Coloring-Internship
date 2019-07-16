@@ -39,7 +39,7 @@ public class Test {
 		for (int i = 1; i < 51; i = i + 2) { 
 			g.addConnection(0, i);
 		}
-		SixColorLowDegree s = new SixColorLowDegree(g); 
+		SixColorRecursive s = new SixColorRecursive(g); 
 		s.color();
 		GraphViewer.viewGraph(g);
 

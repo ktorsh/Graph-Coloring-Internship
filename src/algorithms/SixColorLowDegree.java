@@ -22,7 +22,7 @@ public class SixColorLowDegree implements ColoringAlgo{
 		for (int j = 0; j < adjMatrix.length; j++) { //find node with least edges
 			int minNode = connectedNodes.get(0); 
 			for (int i = 1; i < connectedNodes.size(); i++) {
-				if (graph.getVertexDegree(connectedNodes.get(i)) < graph.getVertexDegree(minNode)) { 
+				if (graph.getVertexDegree(connectedNodes.get(i), connectedNodes) < graph.getVertexDegree(minNode, connectedNodes)) { 
 					minNode = connectedNodes.get(i);
 				}
 			}

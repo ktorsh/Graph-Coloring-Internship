@@ -51,5 +51,8 @@ public class GraphSerializer {
 		}
 		return g;
 	}
+	public static String nameFile(GraphMatrix g) { 
+		return null;
+	}
 
 }

@@ -74,11 +74,37 @@ public class VertexMatrix {
 		}
 		return count;
 	}
+	public int getDegree(ArrayList<Integer> connectedNodes) { 
+		int count = 0;
+		for (int i = 0; i < connections.size(); i++) {  
+			if (connections.get(i) == 1 && connectedNodes.contains(i)) { 
+				count++;      
+			}
+		}
+		return count;
+	}
+	public int getDegree(int[] connectedNodes) { 
+		int count = 0;
+		for (int i = 0; i < connections.size(); i++) {  
+			if (connections.get(i) == 1 && contains(connectedNodes, i)) { 
+				count++;      
+			}
+		}
+		return count;
+	}
 	public Colors getColor() {
 		return color;
 	}
 	public void setColor(Colors color) {
 		this.color = color;
+	}
+	private boolean contains(int[] arr, int n) { 
+		for (int i = 0; i < arr.length; i++) { 
+			if (arr[i] == n) { 
+				return true;
+			}
+		}
+		return false;
 	}
 //	public LinkedList<Integer> getAdjList(){ 
 //		

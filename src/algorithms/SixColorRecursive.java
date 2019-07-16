@@ -24,7 +24,7 @@ public class SixColorRecursive implements ColoringAlgo{
 		}
 		int minNode = connectedNodes[0]; 
 		for (int i = 1; i < connectedNodes.length; i++) {
-			if (graph.getVertexDegree(connectedNodes[i]) < graph.getVertexDegree(minNode)) { 
+			if (graph.getVertexDegree(connectedNodes[i], connectedNodes) < graph.getVertexDegree(minNode, connectedNodes)) { 
 				minNode = connectedNodes[i];
 			}
 		}
