@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class GraphMatrix implements Serializable{
 	int numNodes; 
 	ArrayList<VertexMatrix> nodes; 
+	int numColors;
 	public GraphMatrix() { 
 		numNodes = 0; 
 		nodes = new ArrayList<VertexMatrix>();
@@ -78,5 +79,12 @@ public class GraphMatrix implements Serializable{
 			System.out.println();
 		}
 	}
+	public int getNumColors() {
+		return numColors;
+	}
+	public void setNumColors(int numColors) {
+		this.numColors = numColors;
+	}
+	
 
 }

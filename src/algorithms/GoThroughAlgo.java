@@ -20,7 +20,10 @@ public class GoThroughAlgo implements ColoringAlgo{
 				hasColor = true;
 				for (int i = 0; i < adjMatrix.length; i++) { //colors with the "least" available color
 					if (adjMatrix[node][i] == 1 && currentColor == graph.getNodeColor(i).getN()) { 
-						hasColor = false;				
+						hasColor = false;	
+						if (currentColor + 1 > graph.getNumColors()) { 
+							graph.setNumColors(currentColor + 2);
+						}
 					}
 				}
 			}

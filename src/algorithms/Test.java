@@ -41,6 +41,7 @@ public class Test {
 		}
 		SixColorRecursive s = new SixColorRecursive(g); 
 		s.color();
+		System.out.println(g.getNumColors());
 		GraphViewer.viewGraph(g);
 
 	}
