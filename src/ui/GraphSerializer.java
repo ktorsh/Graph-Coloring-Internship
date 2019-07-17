@@ -27,11 +27,12 @@ public class GraphSerializer {
 		} 
 		catch (IOException e) {
 			System.out.println("Error initializing stream");
+			e.printStackTrace();
 		}
 		
 	}
 	
-	public GraphMatrix readGraph(File f) { 
+	public static GraphMatrix readGraph(File f) { 
 		GraphMatrix g = null;
 		try { 
 			FileInputStream fi = new FileInputStream(f);
@@ -51,7 +52,7 @@ public class GraphSerializer {
 		}
 		return g;
 	}
-	public static String nameFile(GraphMatrix g) { 
+	public static String nameFile(GraphMatrix g) { //TODO
 		return null;
 	}
 

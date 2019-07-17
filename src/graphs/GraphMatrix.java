@@ -1,9 +1,10 @@
 package graphs;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GraphMatrix {
+public class GraphMatrix implements Serializable{
 	int numNodes; 
 	ArrayList<VertexMatrix> nodes; 
 	public GraphMatrix() { 
