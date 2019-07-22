@@ -3,6 +3,7 @@ package graphs;
 import java.awt.Color;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class GraphMatrix implements Serializable{
 	int numNodes; 
@@ -80,7 +81,12 @@ public class GraphMatrix implements Serializable{
 		}
 	}
 	public int getNumColors() {
-		return numColors;
+		Colors[] l = getAllNodeColors();
+		HashSet<Colors> hs = new HashSet<Colors>();
+		for (int i = 0; i < l.length; i++) { 
+			hs.add(l[i]);
+		}
+		return hs.size();
 	}
 	public void setNumColors(int numColors) {
 		this.numColors = numColors;
