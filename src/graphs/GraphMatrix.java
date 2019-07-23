@@ -9,21 +9,34 @@ public class GraphMatrix implements Serializable{
 	int numNodes; 
 	ArrayList<VertexMatrix> nodes; 
 	int numColors;
+	int[][] matrixF;
+	boolean useFMatrix = false;
 	public GraphMatrix() { 
 		numNodes = 0; 
 		nodes = new ArrayList<VertexMatrix>();
 	}
-	public GraphMatrix(int[][] adjMatrix) {
-		for (int i = 0; i < adjMatrix.length; i++) { 
-			addNode();
-		}
-		for (int i = 0; i < adjMatrix.length; i++) { 
-			for (int j = 0; j < adjMatrix.length; j++) { 
-				if (adjMatrix[i][j] == 1) { 
-					addConnection(i, j);
-				}
+	public GraphMatrix(int[][] adjMatrix, boolean decompose) {
+		numNodes = 0; 
+		nodes = new ArrayList<VertexMatrix>();
+		if (decompose) { 
+			for (int i = 0; i < adjMatrix.length; i++) { 
+				addNode();
 			}
-		}	
+			for (int i = 0; i < adjMatrix.length; i++) { 
+				for (int j = 0; j < adjMatrix.length; j++) { 
+					if (adjMatrix[i][j] == 1) { 
+						addConnection(i, j);
+					}
+				}
+			}	
+		} 
+		else { 
+			for (int i = 0; i < adjMatrix.length; i++) { 
+				addNode();
+			}
+			matrixF = adjMatrix;
+			useFMatrix = true; 
+		}
 	}
 	public void addNode() { 
 		VertexMatrix m = new VertexMatrix(nodes.size(), nodes.size());
@@ -37,11 +50,16 @@ public class GraphMatrix implements Serializable{
 		nodes.get(second).addConnection(first);
 	}
 	public int[][] getAdjacencyMatrix(){ 
-		int[][] matrix = new int[nodes.size()][nodes.size()]; 
-		for (int i = 0; i < nodes.size(); i++) { 
-			matrix[i] = nodes.get(i).getConnectionArray();
+		if (!useFMatrix) {
+			int[][] matrix = new int[nodes.size()][nodes.size()]; 
+			for (int i = 0; i < nodes.size(); i++) { 
+				matrix[i] = nodes.get(i).getConnectionArray();
+			}
+			return matrix;
+		} 
+		else { 
+			return matrixF;
 		}
-		return matrix;
 	}
 	public Colors[] getAllNodeColors() { 
 		Colors[] list = new Colors[nodes.size()];

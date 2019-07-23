@@ -1,12 +1,13 @@
 package algorithms;
 
+import generators.RandomGen;
 import graphs.GraphMatrix;
 import graphs.GraphViewer;
 
 public class Test {
 
 	public static void main(String[] args) {
-		GraphMatrix g = new GraphMatrix();
+		GraphMatrix g = RandomGen.randomGen(8, 0.25);
 //		g.addNode();
 //		g.addNode();
 //		g.addNode();
@@ -27,18 +28,20 @@ public class Test {
 //		g.addConnection(2, 8);
 //		g.addConnection(8, 7);
 //		g.addConnection(8, 6);
-		for (int i = 0; i < 51; i++) { 
-			g.addNode(); 
-		}
-		for (int i = 0; i < 51; i++) { 
-			g.addConnection(i, (i+1)%51);
-		}
-		for (int i = 0; i < 51; i++) { 
-			g.addConnection(i, (i+2)%51);
-		}
-		for (int i = 1; i < 51; i = i + 2) { 
-			g.addConnection(0, i);
-		}
+//		for (int i = 0; i < 51; i++) { 
+//			g.addNode(); 
+//		}
+//		for (int i = 0; i < 51; i++) { 
+//			g.addConnection(i, (i+1)%51);
+//		}
+//		for (int i = 0; i < 51; i++) { 
+//			g.addConnection(i, (i+2)%51);
+//		}
+//		for (int i = 1; i < 51; i = i + 2) { 
+//			g.addConnection(0, i);
+//		}
+
+
 		SixColorRecursive s = new SixColorRecursive(g); 
 		s.color();
 		System.out.println(g.getNumColors());
